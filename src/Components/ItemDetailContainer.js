@@ -4,8 +4,10 @@ import { products } from "./Products";
 import React, { useState } from 'react';
 import ItemDetail from './ItemDetail'
 export default function ItemDetailContainer (){
-    const [detail, setDetail] = useState([]);
+    const [detail, setDetail] = useState([{}]);
     const {id} = useParams();
+    console.log("CONTAINER");
+    console.log(products);
     console.log("ID container detail " + id);
     useEffect(()=>{
         new Promise((right, wrong) =>{
@@ -15,16 +17,15 @@ export default function ItemDetailContainer (){
             right(products);
 
         }).then(solved => {setDetail(solved)})
-
     }, [id])
-
-    const [clothDetail] = detail; //Saco el objeto del array 
-    console.log(products);
+    console.log("DETALLE");
     console.log(detail);
-    console.log(clothDetail);
+    // const [clothDetail] = detail; //Saco el objeto del array 
+    // console.log("Detalle");
+    // console.log(clothDetail);
     return(
         <div>
-            <ItemDetail oneItem = {clothDetail}/>
+            <ItemDetail oneItem = {detail}/>
         </div>
     );
 }

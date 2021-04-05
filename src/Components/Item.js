@@ -21,20 +21,20 @@ function Item({item}){
 // console.log(cart); 
 // console.log(context);
   //console.log("item "+ item.id);
+
   const onAdd = (e, counter) =>{
     alert("Se agregaron al carrito " +counter +" elementos");
     {item.stock = item.stock - counter}
     console.log("Se agrego al carrito");
   }
   
-  const buyThis = (id) =>{
-    if(id)
-    console.log(id);
-    console.log(unItem);
+  const buyThis = () =>{
     // setCart(["cart"]);
     setCart([...cart, unItem]);
   }
-
+// console.log("ITEM");
+// console.log(item.id);
+// console.log(item);
   return(
 <div id = "hero" style = {{color: "#d9ba85", fontWeight: "30px", fontSize: "20px", paddingRight: "1000px"}}>
   <h1>Componente Item</h1>
@@ -42,7 +42,7 @@ function Item({item}){
 <img  style = {{maxWidth: "120px"}}src = {item.pictureURL}></img>
 <li>Producto: {item.title}</li>
 <li>PRECIO: {item.price}</li>
-<li><button onClick = {buyThis(item.id)}>COMPRAR</button></li> 
+<li><button onClick = {buyThis}>COMPRAR</button></li> 
 {/* BOTON NUEVO DE PRUEBA */}
 <li><Link to = {`/ItemDetailContainer/${item.id}`} >VER DETALLE</Link></li>
 {/* <li><Link to = "/CartContext">TOCAME</Link></li> */}

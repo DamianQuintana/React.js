@@ -11,7 +11,6 @@ import ItemDetailContainer from './ItemDetailContainer';
 function ItemListContainer() {
   const [items, setItems] = useState([]); //Esto tiene que ser un objeo literal del producto 
   const { id } = useParams();
-  console.log("containerlist: " +id);
 
   useEffect(() => {
     new Promise((right, wrong) => {
@@ -21,10 +20,12 @@ function ItemListContainer() {
           right(products.filter(x => x.category == id))
         }
         right(products);
-      }, 1);
+      }, 5000);
 
     }).then(solved => setItems(solved))
   });
+  // console.log("LIST CONTAINER");
+  // console.log(items);
 
   return (
     <div id="hero">
