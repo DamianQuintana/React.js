@@ -7,6 +7,8 @@ const ItemList = ({items})=>(
 <div id = "hero">
     <h1>componente ItemList</h1>
     {items.map((x)=> <Item key = {x} item= {x}/> )}
+    {console.log("Itemlist")};
+    {console.log(items)};
 </div>
 ); 
 

@@ -32,9 +32,9 @@ function Item({item}){
     // setCart(["cart"]);
     setCart([...cart, unItem]);
   }
-// console.log("ITEM");
+ console.log("ITEM");
 // console.log(item.id);
-// console.log(item);
+ console.log(item);
   return(
 <div id = "hero" style = {{color: "#d9ba85", fontWeight: "30px", fontSize: "20px", paddingRight: "1000px"}}>
   <h1>Componente Item</h1>

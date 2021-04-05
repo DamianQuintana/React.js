@@ -24,8 +24,8 @@ function ItemListContainer() {
 
     }).then(solved => setItems(solved))
   });
-  // console.log("LIST CONTAINER");
-  // console.log(items);
+   console.log("ITEM CONTAINER");
+   console.log(items);
 
   return (
     <div id="hero">
