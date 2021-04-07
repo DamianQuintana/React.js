@@ -12,6 +12,7 @@ export  default function NavBar(){
         <li><Link to = "/ItemListContainer">CONTAINER/HOME</Link></li>
         <li><Link to = "/category/Remeras">REMERAS</Link></li>
         <li><Link to = "/category/Pantalones">PANTALONES</Link></li>
+        <li><Link to = "/CartWidget">CARRITO</Link></li>
           <li><a href="#staff">Nosotros</a></li>
           <li><a href="#contact">Contacto</a></li>
         </ul>
@@ -25,7 +26,6 @@ export  default function NavBar(){
         <h1>Bienvenidos a <span>Hell remeras</span></h1>
         <h2>Trayendo las remeras del infierno hace mas de 3 años</h2>
       </div>
-      <CartWidget/>
     </div>
   </div>
 </section>

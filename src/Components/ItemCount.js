@@ -3,23 +3,35 @@ import { useEfect, useState } from "react";
 import CartContext from "../CartContext";
 import { useContext } from "react";
 
-const ItemCount = ({ init, stock, item }) => {
-    const {cart, setCart} = useContext(CartContext);
-     const context = useContext(CartContext);
+const ItemCount = ({ init, stock, item, id, title, price, pictureURL, category}) => {
+    const { cart, setCart } = useContext(CartContext);
+    const context = useContext(CartContext);
     const [counter, setCounter] = useState(init);
     const [compra, terminarCompra] = useState("No termino la compra todavia");
-
-    const unItem = [
+    const oneItem = [
         {
             id: item.id,
             title: item.title,
             price: item.price,
             stock: counter,
             pictureURL: item.pictureURL,
-            category: item.category
+            category: item.category,
+            total: counter*item.price,
         }
-      ]
-
+    ]
+    console.log("cart antes");
+    console.log(cart);
+    // const oneItem = {id, title, price, pictureURL, category};
+    const buyThis = () => {
+        if (counter > 0) {
+            setCart([...cart, 
+            ...oneItem]) //Enviamos la cantidad de cada item que compramos 
+            console.log(cart);  
+        }
+        else {
+            alert("No selecciono cantidad");
+        }
+    }
     const handleApp = () => {
         if (counter < item.stock) {
             setCounter(counter + 1);
@@ -49,10 +61,7 @@ const ItemCount = ({ init, stock, item }) => {
             terminarCompra("No termino la compra todavia");
 
     }
-    const buyThis = () =>{
-        setCart([...cart, unItem]);
-        console.log(cart)
-      }
+
 
     return (
         <>
@@ -62,8 +71,7 @@ const ItemCount = ({ init, stock, item }) => {
             <input value={counter} onChange={e => handleChange(e)}></input>
             <button onClick={changeComponent}>Agregar al carrito</button>
             <br />
-            <button onClick = {buyThis}>{compra}</button>
-            
+            <button onClick={buyThis}>{compra}</button>
         </>
     );
 }

@@ -12,17 +12,19 @@ import ItemList from './Components/ItemList'
 import { products } from './Components/Products';
 import ItemDetailContainer from './Components/ItemDetailContainer';
 import CartContext from "./CartContext";
+import CartWidget from './Components/CartWidget';
 function App() {
-  const context = useContext(CartContext);
   const [cart, setCart] = useState([]); //CREAMOS AL CART COMO UN ARRAY VACIO
-
   return (
     <CartContext.Provider value={{ cart, setCart }}>
+      {console.log("Main")};
+      {console.log(CartContext)};
       {/* EL value es un objeto por eso tiene doble llaves, tomo el valor en una expresion de JS  */}
       <BrowserRouter>
         <div className="App" id="hero">
           <NavBar />
           <Switch>
+            <Route exact path = "/CartWidget"><CartWidget/></Route>
             <Route exact path="/category/:id"> <ItemListContainer></ItemListContainer></Route>
             <Route exact path="/ItemListContainer"> <ItemListContainer></ItemListContainer></Route>
             <Route exact path="/ItemDetailContainer/:id"> <ItemDetailContainer></ItemDetailContainer></Route>

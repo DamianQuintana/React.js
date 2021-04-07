@@ -5,9 +5,8 @@ import ItemDetail from './ItemDetail'
 
 
 function DetailList({ details }) {
-    return (<div id="hero">
-        <h1>componente DetailList</h1>
+    return (<>
         {details.map((x) => <ItemDetail key={x} details={x} />)}
-    </div>);
+    </>);
 }
 export default DetailList;
