@@ -20,17 +20,14 @@ function ItemListContainer() {
           right(products.filter(x => x.category == id))
         }
         right(products);
-      }, 5000);
+      }, 1);
 
     }).then(solved => setItems(solved))
   });
-   console.log("ITEM CONTAINER");
-   console.log(items);
 
   return (
-    <div id="hero">
+    <div id = "hero">
       <PropGreeting greeting="Bienvenido a la sección del ItemListContainer" buySome="Dentro de poco vamos a tener los productos cargados" />
-      <h1>ITEMLIST<span>CONTAINER</span></h1>
       <ItemList items={items} />
     </div>
   );

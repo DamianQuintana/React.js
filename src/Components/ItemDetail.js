@@ -1,52 +1,19 @@
-// import ItemDetailContainer from "./ItemDetailContainer";
-// import {BrowserRouter, Link, Route, Router, Switch} from 'react-router-dom';
-// import { useParams } from "react-router";
+import ItemCount from './ItemCount';
+import {Link} from 'react-router-dom';
 
-// export default function ItemDetail({id}){
-// console.log("Item detail");
-// console.log(id);
-//     return(
-//         <>
-//       <ul>
-//           <li>ID: {id}</li>
-//       </ul>
-//       </>
-//     );
-// }
-
-
-import Example from './ItemCount';
-import React, { useState } from 'react';
-import ItemList from './ItemList';
-import PropGreeting from './PropGreeting';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
-import { useEffect } from "react";
-import { products } from './Products'
-import ItemDetailContainer from './ItemDetailContainer';
-
-function ItemDetail() {
-  const [items, setItems] = useState([]); //Esto tiene que ser un objeo literal del producto 
-  const { id } = useParams();
-  console.log(id);
-  useEffect(() => {
-    new Promise((right, wrong) => {
-      
-      setTimeout(() => {
-        if(id){
-          right(products.filter(x => x.id == id))
-        }
-        right(items);
-      }, 5000);
-
-    }).then(solved => setItems(solved))
-  });
-
-  console.log(items);
+function ItemDetail({ details }) {
   return (
-    <div id="hero">
-        <ul></ul>
+    <div id="hero" style={{ color: "#d9ba85", fontWeight: "30px", fontSize: "20px", paddingRight: "1000px" }}>
+      <ul id ="thisAnchor">
+        <img style={{ maxWidth: "120px" }} src={details.pictureURL}></img>
+        <li>Producto: {details.title}</li>
+      
+        <li>PRECIO: {details.price}</li>
+        <li><Link to = "/ItemListContainer">Volver a productos</Link></li>
+        <br/>
+        <li><Link to = "/category/Remeras">Volver a remeras</Link></li>
+        <li><ItemCount init={0} stock={details.stock} item={details} /></li>
+      </ul>
     </div>
   );
-
 } export default ItemDetail;
