@@ -17,8 +17,6 @@ function App() {
   const [cart, setCart] = useState([]); //CREAMOS AL CART COMO UN ARRAY VACIO
   return (
     <CartContext.Provider value={{ cart, setCart }}>
-      {console.log("Main")};
-      {console.log(CartContext)};
       {/* EL value es un objeto por eso tiene doble llaves, tomo el valor en una expresion de JS  */}
       <BrowserRouter>
         <div className="App" id="hero">
