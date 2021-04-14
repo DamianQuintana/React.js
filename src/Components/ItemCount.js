@@ -3,11 +3,14 @@ import { useEfect, useState } from "react";
 import CartContext from "../CartContext";
 import { useContext } from "react";
 
+
 const ItemCount = ({ init, stock, item, id, title, price, pictureURL, category}) => {
     const { cart, setCart } = useContext(CartContext);
     const context = useContext(CartContext);
     const [counter, setCounter] = useState(init);
     const [compra, terminarCompra] = useState("No termino la compra todavia");
+ 
+
     const oneItem = [
         {
             id: item.id,
@@ -21,12 +24,13 @@ const ItemCount = ({ init, stock, item, id, title, price, pictureURL, category})
         }
     ]
     console.log("SINGLE ITEM");
-    console.log(oneItem[0].id);
+    console.log(oneItem);
     // const oneItem = {id, title, price, pictureURL, category};
     const buyThis = () => {
         if (counter > 0) {
-            setCart([...cart, 
-            ...oneItem]) //Enviamos la cantidad de cada item que compramos 
+            setCart([...cart,...oneItem]) //Enviamos la cantidad de cada item que compramos 
+            console.log("CART");
+            console.log(cart);
         }
         else {
             alert("No selecciono cantidad");
@@ -61,7 +65,7 @@ const ItemCount = ({ init, stock, item, id, title, price, pictureURL, category})
 
     }
 
-
+    console.log(oneItem);
     return (
         <>
             <h1>STOCK <span>{stock - counter}</span></h1>

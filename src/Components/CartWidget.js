@@ -2,15 +2,57 @@ import logo from './Image/CartWidgetLogo.jpg'
 import { useContext, useState } from "react";
 import CartContext from "../CartContext";
 import CartShower from './CartShower';
+
+import {getFirestore} from '../configs/firebase'
+import { useEffect } from "react";
+
+
 export default function CartWidget(){
-    const context = useContext(CartContext);
-    {console.log("CART DEL WIDGET");}
-    {console.log(context.cart[0].id)}
-    const [checkOut, setCheck] = useState(1);
-    // const wawa = 0;
-    // function awa(){
-    //         setCheck(context.cart[0].price *context.cart[0].stock);
+
+    /////LOGICA PARA COMPRADOR ==============================
+    const db = getFirestore();
+
+    const [buyer, setBuyer] = useState([]); //Esto tiene que ser un objeo literal del producto 
+
+    // function create(){  
+    //     const compra = db.collection("COMPRA");
+    //     const newCompra = {
+    //         user: {id: "1", nombre: "Pedri", email: "pedropedro@gmail.com"}
+    //     }
     // }
+    const date = "13/04/2021";   
+    const context = useContext(CartContext);
+    const [checkOut, setCheck] = useState(1);
+
+    useEffect(() =>{
+  
+        //COMPRADOR
+        const buyerList = db.collection('Buyer');
+        const order = ([]);
+        buyerList.get().then((querySnapshot) =>{
+          if(querySnapshot.size == 0){
+            console.log("Sin datos para mostrar");
+          }else{
+            setBuyer(querySnapshot.docs.map(doc => doc.data()))
+            console.log("comprador");
+            console.log(buyer);
+            console.log("CARRITO");
+            querySnapshot.docs.map((p) => console.log({id: p.id, date: date,  ...p.data(), items: context.cart, total: checkOut})); //Obtengo el id unico del objeto, que ya esta seteado de antemano 
+          }
+        }).catch((error) => console.log(error))
+      }, [])
+    
+     
+    /////LOGICA PARA COMPRADOR ==============================
+
+ 
+
+    // const algo = {
+    //     objeto: {context}
+    // };
+ 
+    // console.log(algo);
+
 
     
     const precio = () => {
@@ -23,7 +65,12 @@ export default function CartWidget(){
 
         }
     }
-    
+
+
+
+
+
+
 //como PUEDO LEVANTAR LOS DATOS PARA MULTIPLICAR STOCK POR ITEMS Y OBTENER PRECIO TOTAL
 
     // console.log(context.cart[0].id); //Acá estamos recibiendo el contexto 

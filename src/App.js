@@ -1,3 +1,40 @@
+// import './App.css';
+// import ItemListContainer from './Components/ItemListContainer';
+// import './App.css';
+// import NavBar from './Components/NavBar'
+// import image from './Components/Image/CartWidgetLogo.jpg'
+// import { useContext, useState } from "react";
+// import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// import Item from './Components/Item';
+// import { useParams } from 'react-router-dom';
+// import RouterApp from './Components/RouterApp'
+// import ItemList from './Components/ItemList'
+// import { products } from './Components/Products';
+// import ItemDetailContainer from './Components/ItemDetailContainer';
+// import CartContext from "./CartContext";
+// import CartWidget from './Components/CartWidget';
+// function App() {
+//   const [cart, setCart] = useState([]); //CREAMOS AL CART COMO UN ARRAY VACIO
+//   function create(){
+//     const orders 
+//   }
+//   return (
+//     <div>
+//       <input type ="text"></input>
+//       <button>GET ALL</button>
+//       <button>GET by filter</button>
+//       <button>GET by id</button>
+//       <br/>
+//       <button>CREATE</button>
+//       <button>DELETE</button>
+//       <button>UPDATE</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
 import './App.css';
 import ItemListContainer from './Components/ItemListContainer';
 import './App.css';

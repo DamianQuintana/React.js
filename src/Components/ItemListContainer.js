@@ -49,7 +49,7 @@ function ItemListContainer() {
       }else{
         console.log(id); //CATEGORIA 
         setItems(querySnapshot.docs.map(doc => doc.data()))
-
+        console.log(productsList);
         const productsFiltered = db.collection("Products").where("category" ,"==", id);
 
         productsFiltered.get().then((querySnapshot) =>{
