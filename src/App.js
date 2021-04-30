@@ -49,6 +49,7 @@ import ItemList from './Components/ItemList'
 import { products } from './Components/Products';
 import ItemDetailContainer from './Components/ItemDetailContainer';
 import CartContext from "./CartContext";
+import firebase from "../src/configs/firebase"
 import CartWidget from './Components/CartWidget';
 function App() {
   const [cart, setCart] = useState([]); //CREAMOS AL CART COMO UN ARRAY VACIO
